@@ -2,8 +2,8 @@
 
 
 //Creating Servo Object
-Servo spoonservo;  //D3 Spoon servo  - SG90 Micro servo (Tower Pro) ; not analog
-Servo firstservo; //D6 First servo  -TowerPro MG 996R
+Servo spoonservo;  //D3 Spoon servo
+Servo firstservo; //D6 First servo
 
 
 int spoonpos;
@@ -51,7 +51,7 @@ void loop() {
   }
  // Start Feed Process
 
- Serial.print("step1"); // Rod at home position
+ //Serial.print("step1"); // Rod at home position
  firstservo.write(75);
  delay (1000); 
  
@@ -62,30 +62,32 @@ void loop() {
  delay (1000); 
  spoonservo.write(160); //spoon position 3
  delay (1000); 
+ spoonservo.write(130); //spoon position 3
+ delay (1000); 
  spoonservo.write(100); //spoon position 4
  delay (1000); 
- spoonservo.write(90);  //spoon position 5
- delay (1000); 
- spoonservo.write(82); //spoon feed position 
+ //spoonservo.write(90);  //spoon position 5
+ //delay (1000); 
+ spoonservo.write(100); //spoon feed position 
  Serial.print("Spoon Feed position");
- delay (8000); 
+ delay (4000); 
  
  Serial.print("step2"); //Rod moves with spoon at feed position
  firstservo.write(70);
 
  Serial.print("step3"); //Rod moves with spoon at feed position
  firstservo.write(60);
- delay (1000);
+ delay (1000); 
 
  Serial.print("step4"); //Rod moves with spoon at feed position
- firstservo.write(30);
+ firstservo.write(50);
+ spoonservo.write(100);
 
- Serial.print("step5"); //Rod and spoon both at feed position
- firstservo.write(0);
+ //Serial.print("step5"); //Rod and spoon both at feed position
+ //firstservo.write(45);
+// spoonservo.write(100);
+// firstservo.write(40);
  delay (5000); 
-  
- Serial.print("step0"); // Process restarts - Rod at home position
- firstservo.write(75);
 
 }
 
