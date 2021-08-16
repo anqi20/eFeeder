@@ -24,14 +24,15 @@ void loop() {
       delay(100); 
 }
     delay(2000);
+  
     Serial.println("scooping");   //Scoops food at home position
-    
     for(i=190; i>=110; i--) {
       spoonservo.write(i);
       Serial.println(i);
       delay(100); 
 }
     delay(2000);
+  
     Serial.println("gofeedpos");      // Goes to feed position
     for(j=60; j>=30; j--) {
       firstservo.write(j);
