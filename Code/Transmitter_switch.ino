@@ -4,7 +4,7 @@
 
 #define CE_PIN 9 
 #define CSN_PIN 10 
-const int SWITCH_PIN = 6;
+#define SWITCH_PIN 7
 
 const uint64_t pipe = 0xE8E8F0F0E1LL;
 int buttonState = 0; 
@@ -23,13 +23,16 @@ void setup() {
 void loop() {
   /*const char text[] = "Hello World";
   radio.write(&text, sizeof(text));
+  Serial.println(text);
   delay(1000);*/
-
+  
+  digitalWrite(SWITCH_PIN, HIGH); 
   buttonState = digitalRead(SWITCH_PIN); 
 
-  if(buttonState == HIGH) {
+  if(buttonState == LOW) {
     radio.write(&buttonState, sizeof(buttonState));
     Serial.println("button has been pressed!!"); 
     delay(500);
   } 
+
 }
