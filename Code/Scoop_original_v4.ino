@@ -65,7 +65,7 @@ void scooping() {
     spoonservo.write(i);
     Serial.println(i);
     delay(100); }
-    delay(2000);
+    //delay(2000);
  
   Serial.println("scooping:step3");
   for(p=95; p<=105; p++) {
