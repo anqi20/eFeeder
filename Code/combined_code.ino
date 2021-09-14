@@ -69,7 +69,7 @@ void gohomepos() {
     delay(100); }
 
   Serial.println("gohomepos:step3");
-  for(k=50; k<=105; k++) { //80 ; can change accordingly where to start scoop from
+  for(k=50; k<=130; k++) { //80 ; can change accordingly where to start scoop from
     firstservo.write(k);
     Serial.println(k);
     delay(80); }
@@ -77,60 +77,51 @@ void gohomepos() {
 
 void scooping() {
   Serial.println("scooping");   //Scoops food at home position
-    spoonservo.write(120);
+    spoonservo.write(95); //120
   
   Serial.println("scooping:step1");  
-  for(p=105; p>=80; p--) {
+  for(p=130; p>=95; p--) {
     firstservo.write(p);
     Serial.println(p);
-    delay(100); 
-    } 
-
+    delay(100); } 
+    
   Serial.println("scooping:step2");
-  for(i=120; i>=95; i--) {    //160
+  for(i=95; i>=80; i--) {    
     spoonservo.write(i);
     Serial.println(i);
     delay(100); }
-    delay(2000);
-   
+    //delay(2000);
+ 
   Serial.println("scooping:step3");
-  for(p=80; p<=85; p++) {
+  for(p=95; p<=105; p++) {
     firstservo.write(p);
     Serial.println(p);
     delay(100); } 
   
   Serial.println("scooping:step4");
-  for(i=95; i>=90; i--) {    
-    spoonservo.write(i);
-    Serial.println(i);
-    delay(100); }
-    //delay(2000);
-      
-  Serial.println("scooping:step5");
-  for(p=85; p<=90; p++) {
-    firstservo.write(p);
-    Serial.println(p);
-    delay(100); } 
-
-  Serial.println("scooping:step6");
-  for(i=90; i>=80; i--) {    
-    spoonservo.write(i);
-    Serial.println(i);
-    delay(100); }
-    //delay(2000);
-
-  Serial.println("scooping:step7");
-  for(p=90; p<=96; p++) {
-    firstservo.write(p);
-    Serial.println(p);
-    delay(100); } 
-
-  Serial.println("scooping:step8");    //spoon has exited the bowl
-  for(i=80; i>=60; i--) {    
+  for(i=80; i>=65; i--) {    
     spoonservo.write(i);
     Serial.println(i);
     delay(100); }
     
+  Serial.println("scooping:step5");
+  for(p=105; p<=110; p++) {
+    firstservo.write(p);
+    Serial.println(p);
+    delay(100); } 
+  
+  Serial.println("scooping:step6");
+  for(i=65; i>=53; i--) {    
+    spoonservo.write(i);
+    Serial.println(i);
+    delay(100); }
+    
+      
+  Serial.println("scooping:step7"); //spoon has exited the bowl
+  for(p=110; p<=96; p++) {
+    firstservo.write(p);
+    Serial.println(p);
+    delay(100); }  
 }
 
 void gofeedpos() {
@@ -140,7 +131,7 @@ void gofeedpos() {
     Serial.println(j);
     delay(100); }
    
-  for(l=60; l<=75; l++) {    //for spoon going down
+  for(l=53; l<=80; l++) {    // for spoon going down
     spoonservo.write(l);
     Serial.println(l);
     delay(100); }
@@ -150,7 +141,7 @@ void gofeedpos() {
     Serial.println(m);
     delay(100); }
 
-  for(l=75; l<=88; l++) {    //for spoon to level up to the mouth
+  for(l=80; l<=97; l++) {    //for spoon to level up to the mouth
     spoonservo.write(l);
     Serial.println(l);
     delay(100); }
